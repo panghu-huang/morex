@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div className='app'>
         <AppProvider>
-          <Child />
+          <Child modelName='name' otherProps/>
         </AppProvider>
       </div>
     )

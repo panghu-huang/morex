@@ -4,14 +4,6 @@ import './model'
 
 class Child extends Component {
 
-  componentDidMount() {
-    console.log(this.props)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
-  }
-
   handleClick = () => {
     actions.app.setName('name')
   }
@@ -19,7 +11,7 @@ class Child extends Component {
   render() {
     return (
       <div className='app'>
-        this is child
+        this is child - {String(this.props.app.name)}
         <button onClick={this.handleClick}>action</button>
       </div>
     )
@@ -31,4 +23,3 @@ const mapStateToProps = ({ app }) => {
 }
 
 export default connect(mapStateToProps)(Child)
-// export default Child
