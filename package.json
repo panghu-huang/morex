@@ -1,6 +1,6 @@
 {
   "name": "morex",
-  "version": "1.1.1",
+  "version": "1.2.2",
   "description": "基于 React 新 Context API 的状态管理",
   "main": "lib/index.js",
   "keywords": [
@@ -20,6 +20,7 @@
     "url": "git@github.com:wokeyi/morex.git"
   },
   "license": "ISC",
+  "typings": "lib/index.d.ts",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
