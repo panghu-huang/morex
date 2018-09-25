@@ -20,7 +20,7 @@
     "url": "git@github.com:wokeyi/morex.git"
   },
   "license": "ISC",
-  "typings": "lib/index.d.ts",
+  "typings": "src/index.d.ts",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1"

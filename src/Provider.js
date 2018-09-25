@@ -23,20 +23,32 @@ class AppProvider extends Component {
     this.state = { data }
   }
 
-  addReducers = (name, reducers = {}) => {
+  addReducers(name, reducers = {}) {
     Object.keys(reducers).forEach((actionName) => {
-      actions[name][actionName] = (...params) => {
+      actions[name][actionName] = (...args) => {
         const { data } = this.state
-        const newData = reducers[actionName].call(null, data[name], ...params)
+        const newData = reducers[actionName].call(null, data[name], ...args)
         this.setState({ data: { ...data, [name]: newData } })
       }
     })
   }
 
-  addEffects = (name, effects = {}) => {
+  addEffects(name, effects = {}) {
     Object.keys(effects).forEach(actionName => {
-      actions[name][actionName] = effects[actionName]
+      actions[name][actionName] = async (...args) => {
+        try {
+          const ret = await effects[actionName].apply(null, args.concat(this.getState))
+          return ret
+        } catch (error) {
+          throw error
+        }
+      }
     })
+  }
+
+  getState() {
+    const { data } = this.state
+    return data
   }
 
   render() {
