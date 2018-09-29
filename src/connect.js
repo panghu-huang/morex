@@ -5,11 +5,12 @@ const connect = (mapping = store => store) => {
   return WappedComponent => {
     return class Wrapper extends Component {
 
-      shouldComponentUpdate() {
-        return false
+      constructor(props) {
+        super(props)
+        this.renderContent = this.renderContent.bind(this)
       }
 
-      renderContent = store => {
+      renderContent(store) {
         const originProps = this.props
         const props = mapping(store, originProps)
         if ('object' !== typeof props) {
@@ -25,7 +26,6 @@ const connect = (mapping = store => store) => {
           </Consumer>
         )
       }
-
     }
   }
 }
