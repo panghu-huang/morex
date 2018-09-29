@@ -2,10 +2,11 @@ var path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+  mode: 'development',
   devtool: 'source-map',
-  entry: path.resolve(__dirname, './example/src/index.js'),
+  entry: path.resolve(__dirname, './src/index.js'),
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'morex.min.js'
   },
   module: {
@@ -17,12 +18,14 @@ module.exports = {
       },
     ]
   },
-  // devServer: {
-  //   contentBase: path.join(__dirname, 'example')
-  // },
+  devServer: {
+    contentBase: path.resolve(__dirname, './dist'),
+    port: 3000,
+    host: '0.0.0.0'
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './dist/index.html'),
+      template: path.resolve(__dirname, './src/index.html'),
       inject: true
     })
   ]

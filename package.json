@@ -1,6 +1,6 @@
 {
   "name": "morex",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "基于 React 新 Context API 的状态管理",
   "main": "lib/index.js",
   "keywords": [
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "rm -rf lib && babel src -d lib --no-comments",
-    "start": "node ./example/bin/dev-server.js",
+    "start": "webpack-dev-server --config example/webpack.config.js",
     "bundle": "webpack && webpack -p"
   },
   "author": "wokeyi",
@@ -23,7 +23,8 @@
   "typings": "src/index.d.ts",
   "dependencies": {
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
