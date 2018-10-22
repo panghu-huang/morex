@@ -25,6 +25,7 @@ class AppProvider extends Component {
       this.addEffects(name, effects);
     });
     this.state = { data };
+    this.getState = this.getState.bind(this);
   }
 
   addReducers(name, reducers = {}) {
