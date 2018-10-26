@@ -9,12 +9,27 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     filename: 'morex.min.js'
   },
+  resolve: {
+    alias: {
+      morex: path.resolve(__dirname, '../src')
+    }
+  },
   module: {
     rules: [
       {
         test: /\.(js|jsx|mjs)$/,
         exclude: /node_modules/,
-        loader: require.resolve('babel-loader')
+        loader: require.resolve('babel-loader'),
+        options: {
+          "presets": ["react",
+            ["env", {
+              "modules": false
+            }]
+          ],
+          "plugins":[
+            "transform-runtime"
+          ]
+        }
       },
     ]
   },
