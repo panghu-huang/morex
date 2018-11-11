@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Consumer } from './Provider'
 
-const connect = (mapping = store => store) => {
+const connect = (mapStateToProps = store => store) => {
   return WappedComponent => {
     return class Wrapper extends Component {
 
@@ -12,7 +12,7 @@ const connect = (mapping = store => store) => {
 
       renderContent(store) {
         const originProps = this.props
-        const props = mapping(store, originProps)
+        const props = mapStateToProps(store, originProps)
         if ('object' !== typeof props) {
           throw new Error('返回值应该是 Object 类型')
         }
