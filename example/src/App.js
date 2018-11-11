@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { AppProvider } from '../../src'
+import { AppProvider } from 'morex'
 import Child from './Child'
 import './model'
+import './middleware'
 
 class App extends Component {
 
