@@ -10,9 +10,11 @@ class Child extends Component {
     };
   }
 
-  handleClick = () => {
+  handleClick = async () => {
     const { value } = this.state;
-    actions.app.setName(value);
+    await setTimeout(() => {
+      actions.app.setName(value);
+    }, 1000)
   };
 
   handleChange = ({ target }) => {
