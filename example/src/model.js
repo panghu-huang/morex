@@ -1,6 +1,6 @@
-import morex from '../../src'
+import more from 'morex'
 
-morex.model({
+more.model({
   name: 'app',
   initialState: {
     name: 'MOREX'

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect, actions } from "../../src";
+import { connect, actions } from "morex";
 import "./model";
 
 class Child extends Component {
@@ -10,9 +10,11 @@ class Child extends Component {
     };
   }
 
-  handleClick = () => {
+  handleClick = async () => {
     const { value } = this.state;
-    actions.app.setName(value);
+    await setTimeout(() => {
+      actions.app.setName(value);
+    }, 1000)
   };
 
   handleChange = ({ target }) => {
@@ -25,7 +27,7 @@ class Child extends Component {
       <div className="app">
         <p>Name: {String(this.props.app.name)}</p>
         <p>
-          <input type="text" value={value || ""} onChange={this.handleChange} />
+          <input type="text" value={value || ""} onChange={this.handleChange}/>
         </p>
         <button onClick={this.handleClick}>action</button>
       </div>

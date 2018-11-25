@@ -26,11 +26,11 @@ module.exports = {
               "modules": false
             }]
           ],
-          "plugins":[
-            "transform-runtime"
+          "plugins": [
+            "transform-runtime", "transform-class-properties"
           ]
         }
-      },
+      }
     ]
   },
   devServer: {
